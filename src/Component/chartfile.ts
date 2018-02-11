@@ -1,4 +1,5 @@
 import { Serie } from "../data/Serie";
+import { Point } from "../data/Point";
 
 export const getHighChartsData = {
     chart: {
@@ -126,7 +127,7 @@ export const getHighChartsData1 = {
     }]
 };
 
-export function generateGraph(title:string,data:Array<Serie>){
+export function generateGraph(title:string,data:Array<Serie>,pointX:Point){
     return {
         chart: {
             type: 'area'
@@ -138,7 +139,7 @@ export function generateGraph(title:string,data:Array<Serie>){
             text: 'Source: Wikipedia.org'
         },
         xAxis: {
-            categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+            categories: pointX.getData(),
             tickmarkPlacement: 'on',
             title: {
                 enabled: false
